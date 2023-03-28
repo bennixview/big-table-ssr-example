@@ -21,7 +21,8 @@ to have a large enough set to play with.
 
 ```
 cd big-table-ssr-example
-wget https://github.com/json-iterator/test-data/blob/master/large-file.json
+npm install
+npm run db:seed:download
 ```
 
 Start and prepare database
