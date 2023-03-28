@@ -1,0 +1,14 @@
+body {
+  min-width: 100%;
+}
+
+.icon {
+  background-color: transparent;
+  border: none;
+}
+
+.sorted {
+  color: green;
+}
+
+

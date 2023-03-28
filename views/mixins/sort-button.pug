@@ -1,0 +1,10 @@
+- const isFieldSorted = (prop, order) => sortBy === prop
+
+mixin sortButton(prop, order)
+  button(
+    form="filter-form"
+    type="submit"
+    name="sort"
+    class=`icon ${(isFieldSorted(prop) ? "sorted" : "")}`
+    value=(isFieldSorted(prop) && order === "desc" ? `${prop}:asc` : `${prop}:desc`)
+  )= isFieldSorted(prop) && order === "desc" ? "▼" : "▲"

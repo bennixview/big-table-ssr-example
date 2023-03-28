@@ -1,0 +1,7 @@
+big-data-table {
+  display: block;
+}
+
+big-data-table table th {
+  white-space: nowrap;
+}

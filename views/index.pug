@@ -1,0 +1,62 @@
+extends ./layout.pug
+
+block content
+  include mixins/sort-button
+
+  big-data-table
+    form(action="", method="get" id="filter-form").form.card.mb-3
+      .card-body
+        input(type="text", name="filters[id]", placeholder="Event" value=filters.id)
+        = " "
+        input(type="text", name="filters[type]", placeholder="Type" value=filters.type)
+        = " "
+        input(type="text", name="filters[created_at]", placeholder="Date" value=filters.created_at)
+        = " "
+        input(type="text", name="filters[actor.login]", placeholder="Actor" value=filters['actor.login'])
+        = " "
+        button(type="submit") Search
+
+    table.table.table-bordered.table-sm
+      thead.table-light
+        th.sortable
+          | Event
+          +sortButton('id', order)
+        th.sortable
+          | Type
+          +sortButton('type', order)
+        th.sortable
+          | Date
+          +sortButton('created_at', order)
+        th.sortable
+          | Actor
+          +sortButton('actor.login', order)
+        th Repo
+        th URL
+        th Payload
+        th Something
+        th Some Other
+        th Other Date
+        th Actor
+        th Repo
+        th URL
+        th Payload
+
+      tbody
+        each event in events
+          tr
+            td(class=(sortBy === 'id' ? 'table-active' : ''))= event.id
+            td(class=(sortBy === 'type' ? 'table-active' : ''))= event.type
+            td(class=(sortBy === 'created_at' ? 'table-active' : ''))= event.created_at
+            td(class=(sortBy === 'actor.login' ? 'table-active' : ''))= event.actor.login
+            td= event.repo.name
+            td= event.repo.url
+            td= event.payload.ref
+            td= event.id
+            td= event.type
+            td= event.created_at
+            td= event.actor.login
+            td= event.repo.name
+            td= event.repo.url
+            td= event.payload.ref
+
+

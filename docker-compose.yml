@@ -1,0 +1,23 @@
+version: "3.8"
+
+volumes:
+  virtual-db-drive:
+    driver: local
+
+networks:
+  big-table-test:
+
+services:
+  database:
+    image: postgres:latest
+    restart: always
+    environment:
+      - POSTGRES_DB=${PGDATABASE}
+      - POSTGRES_USER=${PGUSER}
+      - POSTGRES_PASSWORD=${PGPASSWORD}
+    ports:
+      - '5432:5432'
+    volumes:
+      - virtual-db-drive:/var/lib/postgresql/data
+    networks:
+      - big-table-test

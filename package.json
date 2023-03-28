@@ -1,0 +1,35 @@
+{
+  "name": "big-table-sorting",
+  "version": "0.0.1",
+  "description": "",
+  "type": "module",
+  "module": "index.js",
+  "main": "index.js",
+  "scripts": {
+    "migrate": "node -r dotenv/config scripts/migrate.js",
+    "start": "node -r dotenv/config bin/big-table-sorting.js",
+    "start:watch": "nodemon --exec 'node -r dotenv/config bin/big-table-sorting.js' -e js",
+    "db:migrate": "node -r dotenv/config scripts/migrate.js",
+    "db:seed:download": "wget https://github.com/json-iterator/test-data/raw/master/large-file.json",
+    "db:seed": "node -r dotenv/config scripts/seed.js"
+  },
+  "author": "Falk Hoppe <falkhoppe81@gmail.com>",
+  "license": "Apache-2.0",
+  "bin": {
+    "big-table-sorting": "bin/big-table-sorting.js"
+  },
+  "devDependencies": {
+    "eslint": "^8.36.0",
+    "eslint-config-standard": "^17.0.0-1",
+    "eslint-plugin-node": "^11.1.0",
+    "nodemon": "^2.0.22"
+  },
+  "dependencies": {
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "helmet": "^6.0.1",
+    "morgan": "^1.10.0",
+    "postgres": "^3.3.4",
+    "pug": "^3.0.2"
+  }
+}
