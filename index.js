@@ -21,7 +21,6 @@ const store = new EventStore()
 export default config => {
   app.get('/', async (req, res) => {
     const { page, size, filters = {}, sort } = req.query
-    console.log('request-params', { page, size, filters, sort })
 
     const [sortBy, order] = sort ? sort.split(':') : []
     const events = await store.getAll({ page, size, filters, sortBy, order })
