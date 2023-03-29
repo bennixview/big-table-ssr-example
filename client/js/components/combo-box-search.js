@@ -58,9 +58,16 @@ export class ComboBoxSearch extends HTMLElement {
   }
 
   async fetchData (src) {
-    const response = await fetch(src)
+    let dataUrl = src
+    if (this.formFiltered) {
+      const formData = new FormData(this.#form)
+      const params = new URLSearchParams(formData)
+      dataUrl += `?${params.toString()}`
+    }
+
+    const response = await fetch(dataUrl)
     if (!response.ok) {
-      console.warn('Error fetching data for', src)
+      console.warn('Error fetching data for', dataUrl)
       return []
     }
     const data = await response.json()
@@ -73,6 +80,10 @@ export class ComboBoxSearch extends HTMLElement {
 
   get reactive () {
     return this.hasAttribute('reactive')
+  }
+
+  get formFiltered () {
+    return this.hasAttribute('form-filtered')
   }
 }
 

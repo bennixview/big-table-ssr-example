@@ -35,12 +35,9 @@ export default config => {
   })
 
   app.get('/actors', async (req, res) => {
-    const { q } = req.query
-    if (!q || q.length < 2) {
-      res.status(400)
-      return res.json({ error: 'search term must be at least 2 characters' })
-    }
-    const actors = await store.getActors(q)
+    const { filters } = req.query
+
+    const actors = await store.getActors(filters)
     const results = actors.map(type => ({ text: type, value: type }))
     res.json(results)
   })

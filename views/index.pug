@@ -13,7 +13,7 @@ block content
         = " "
         input(type="text", name="filters[created_at]", placeholder="Date" value=filters.created_at)
         = " "
-        combo-box-search(src="/actors{?q}" reactive)
+        combo-box-search(src="/actors" reactive form-filtered)
           input(type="text", name="filters[actor.login]", placeholder="Actor" value=filters['actor.login'])
         = " "
         button(type="submit") Search
