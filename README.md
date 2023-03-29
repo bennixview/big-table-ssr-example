@@ -22,7 +22,7 @@ to have a large enough set to play with.
 ```
 cd big-table-ssr-example
 npm install
-npm run db:seed:download
+npm run build
 ```
 
 Start and prepare database
@@ -30,6 +30,7 @@ Start and prepare database
 ```
 docker compose up database
 cp .env.example .env # includes the connection strings for the DB
+npm run db:seed:download
 npm run db:migrate
 npm run db:seed
 ```

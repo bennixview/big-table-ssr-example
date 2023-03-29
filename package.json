@@ -6,12 +6,13 @@
   "module": "index.js",
   "main": "index.js",
   "scripts": {
-    "migrate": "node -r dotenv/config scripts/migrate.js",
     "start": "node -r dotenv/config bin/big-table-sorting.js",
-    "start:watch": "nodemon --exec 'node -r dotenv/config bin/big-table-sorting.js' -e js",
-    "db:migrate": "node -r dotenv/config scripts/migrate.js",
+    "start:watch": "nodemon --exec 'node -r dotenv/config bin/big-table-sorting.js' -e js,json",
+    "db:migrate": "node -r dotenv/config db/migrate.js",
     "db:seed:download": "wget https://github.com/json-iterator/test-data/raw/master/large-file.json",
-    "db:seed": "node -r dotenv/config scripts/seed.js"
+    "db:seed": "node -r dotenv/config db/seed.js",
+    "build": "vite build",
+    "build:watch": "vite build --watch"
   },
   "author": "Falk Hoppe <falkhoppe81@gmail.com>",
   "license": "Apache-2.0",
@@ -19,10 +20,13 @@
     "big-table-sorting": "bin/big-table-sorting.js"
   },
   "devDependencies": {
+    "@rollup/plugin-node-resolve": "^15.0.1",
     "eslint": "^8.36.0",
     "eslint-config-standard": "^17.0.0-1",
     "eslint-plugin-node": "^11.1.0",
-    "nodemon": "^2.0.22"
+    "faucet-pipeline-js": "^3.0.0",
+    "nodemon": "^2.0.22",
+    "vite": "^4.2.1"
   },
   "dependencies": {
     "dotenv": "^16.0.3",
@@ -30,6 +34,7 @@
     "helmet": "^6.0.1",
     "morgan": "^1.10.0",
     "postgres": "^3.3.4",
-    "pug": "^3.0.2"
+    "pug": "^3.0.2",
+    "uri-template": "^2.0.0"
   }
 }

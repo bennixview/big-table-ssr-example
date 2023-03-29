@@ -1,6 +1,6 @@
 /* global HTMLElement, customElements */
 
-class TabFocusChecker extends HTMLElement {
+export class TabFocusChecker extends HTMLElement {
   #icon
 
   #focusListener = () => this.onFocus()

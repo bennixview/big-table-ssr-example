@@ -1,0 +1,35 @@
+combo-box-search {
+  position: relative;
+}
+
+combo-box-result-list {
+  display: inline-block;
+  position: absolute;
+  left: 0;
+  top: 2rem;
+  background: #fff;
+  border: 1px solid #000;
+  width: 100%;
+}
+
+combo-box-result-list.hidden {
+  display: none;
+}
+
+[is=combo-box-list-item] {
+  display: inline-block;
+  cursor: pointer;
+  list-style-type: none;
+  width: 100%;
+  padding: 0.5rem 1rem;
+
+  border-bottom: 1px solid #000;
+}
+
+[is=combo-box-list-item]:last-of-type {
+  border-bottom: 0;
+}
+
+[is=combo-box-list-item]:hover {
+  background-color: #cecece;
+}

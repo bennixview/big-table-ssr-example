@@ -8,11 +8,13 @@ block content
       .card-body
         input(type="text", name="filters[id]", placeholder="Event" value=filters.id)
         = " "
-        input(type="text", name="filters[type]", placeholder="Type" value=filters.type)
+        combo-box-search(src="/types")
+          input(type="text", name="filters[type]", placeholder="Type" value=filters.type)
         = " "
         input(type="text", name="filters[created_at]", placeholder="Date" value=filters.created_at)
         = " "
-        input(type="text", name="filters[actor.login]", placeholder="Actor" value=filters['actor.login'])
+        combo-box-search(src="/actors{?q}" reactive)
+          input(type="text", name="filters[actor.login]", placeholder="Actor" value=filters['actor.login'])
         = " "
         button(type="submit") Search
 
