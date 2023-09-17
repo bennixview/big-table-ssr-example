@@ -14,7 +14,7 @@
     "build": "vite build",
     "build:watch": "vite build --watch"
   },
-  "author": "Falk Hoppe <falkhoppe81@gmail.com>",
+  "author": "Falk Hoppe",
   "license": "Apache-2.0",
   "bin": {
     "big-table-sorting": "bin/big-table-sorting.js"
